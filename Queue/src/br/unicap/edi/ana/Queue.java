@@ -13,7 +13,7 @@ public class Queue<T> {
     }
     
     public void insertLast(T content){
-
+        LSENode<T> node = new LSENode(content);
     } 
 
     
