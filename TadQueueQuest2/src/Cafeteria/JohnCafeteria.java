@@ -10,7 +10,9 @@ public class JohnCafeteria {
         Scanner s = new Scanner(System.in);
         Queue<Pedido> Maria = new Queue<>();
         int op;
+        
         do {
+            System.out.println("Seja muito bem vind@ à Lanchonete SUPER veloz de João!");
             System.out.println("Escolha a opção:");
             showMenu();
             op = Integer.parseInt(s.nextLine());
