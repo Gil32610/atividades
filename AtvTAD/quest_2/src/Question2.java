@@ -6,6 +6,7 @@ public class Question2 {
         Scanner s = new Scanner(System.in);
         System.out.println("Informe a frase: ");
         String phrase;
+        
         phrase = s.nextLine();
         if(phrase.isBlank()){
             System.out.println("info");

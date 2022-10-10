@@ -24,12 +24,27 @@ public class Queue<T> {
             this.nodes++;
         }
     }
-    public T deQueue(){
+
+    public T deQueue() {
+        T content;
+        if (this.head.getNext() == null) {
+            content = this.head.getContent();
+            this.head = null;
+            this.tail = null;
+            this.nodes = 0;
+            return content;
+
+        }
         LSENode<T> current = this.head.getNext();
-        T content = this.head.getContent();
+        content = this.head.getContent();
         this.head = current;
         return content;
 
+    }
+
+    public T head() {
+        T content = this.head.getContent();
+        return content;
     }
 
 }
