@@ -12,7 +12,10 @@ public class LSEDesc<T> {
         return false;
     }
     
-    public void insertLast(T cio) 
+    public void insertLast(T content){
+
+    } 
+
     
     
 }
