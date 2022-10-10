@@ -1,0 +1,14 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "d:\\STUDY\\ESTRUTURA DE DADOS I\\br\\unicap\\edi\\ana\\Stack\\Stack.jar"
+        ],
+        "exclude": [
+            "lib/Stack.jar",
+            "lib/Stack/Stack.jar"
+        ]
+    }
+}

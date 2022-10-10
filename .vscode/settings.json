@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "Stack/Stack.jar",
+        "d:\\STUDY\\ESTRUTURA DE DADOS I\\br\\unicap\\edi\\ana\\Stack\\Stack.jar"
+    ]
+}
