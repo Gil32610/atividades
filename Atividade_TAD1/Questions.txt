@@ -1,0 +1,215 @@
+// CLASSE STACK IMPLEMENTADA:
+
+
+package pilha;
+public class Stack<T> {
+    private LSENode<T> topo;
+    
+    public boolean isEmpty() {
+        if (this.topo == null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public void push (T valor) {  // inserir no início (topo)
+         LSENode novo = new LSENode(valor);
+         novo.setNext(this.topo);
+         this.topo = novo;  
+    }    
+    public boolean isFull () {
+        return false;
+    }
+    public T pop() {
+        LSENode<T> aux = this.topo;
+        this.topo = this.topo.getNext();
+        return aux.getContent();
+    }
+    public T top() {
+        return this.topo.getContent();
+    }
+    
+}
+
+//CLASSE LSENode:
+
+
+package pilha;
+
+    public class LSENode<T> {
+        private T content;
+        private LSENode<T> next;   
+        public LSENode (T content) {
+            this.content = content;
+        }
+        public void setContent(T content) {
+            this.content = content;
+        }
+        public T getContent() {
+            return this.content;
+        }
+        public void setNext(LSENode<T> novoProx) {
+            this.next = novoProx;
+        }
+        public LSENode<T> getNext () {
+            return this.next;
+        }    
+     
+}
+
+
+//QUESTÃO 1 USANDO PILHA IMPLEMENTADA:
+
+import pilha.Stack;
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Hello, World!");
+        Stack<Integer> pilha = new Stack();
+        Scanner s = new Scanner(System.in);
+        int num, quot, rest;
+        System.out.println("Informe o número decimal para converter em binário: ");
+        num = Integer.parseInt(s.nextLine());
+
+        do {
+            quot = num / 2;
+            rest = num % 2;
+            pilha.push(rest);
+            num = quot;
+        } while (quot != 0);
+
+        while(!pilha.isEmpty()){
+            rest = pilha.pop();
+            System.out.print(rest);
+        }
+
+    }
+}
+
+//QUESTÃO 1 USANDO STACK JAVA: 
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class AppAlt {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Hello, World!");
+        Stack<Integer> pilha = new Stack();
+        Scanner s = new Scanner(System.in);
+        int num, quot, rest;
+        System.out.println("Informe o número decimal para converter em binário: ");
+        num = Integer.parseInt(s.nextLine());
+
+        do {
+            quot = num / 2;
+            rest = num % 2;
+            pilha.push(rest);
+            num = quot;
+        } while (quot != 0);
+
+        while(!pilha.isEmpty()){
+            rest = pilha.pop();
+            System.out.print(rest);
+        }
+
+    }
+    
+}
+
+
+//QUESTÃO 2 USANDO STACK IMPLEMENTADA:
+
+import java.util.Scanner;
+import pilha.Stack;
+
+public class Question2 {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Informe a frase: ");
+        String phrase;
+        
+        phrase = s.nextLine();
+        if(phrase.isBlank()){
+            System.out.println("info");
+        }
+        if (isPalindrome(phrase)) {
+            System.out.println("É um palindromo!");
+        } else {
+            System.out.println("Não é um palindromo");
+        }
+    }
+
+    public static boolean isPalindrome(String phrase) {
+        Stack<Character> palindrome = new Stack();
+
+        for (int i = 0; i < phrase.length(); i++) {
+            char c = phrase.charAt(i);
+            if (c == ' ') {
+                continue;
+            }
+            
+            palindrome.push(phrase.charAt(i));
+        }
+        for (int j = 0; palindrome.isEmpty(); j++) {
+            char a = phrase.charAt(j);
+            if(a == ' '){
+                continue;
+            }
+            if(palindrome.pop()!= phrase.charAt(j)){
+                return false;
+            }
+
+        }
+        return true;
+    }
+}
+
+//Questão 2 usando STACK JAVA:
+
+import java.util.Stack;
+import java.util.Scanner;
+
+public class Question2Alt {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Informe a frase: ");
+        String phrase;
+        phrase = s.nextLine();
+        if(phrase.isBlank()){
+            System.out.println("info");
+        }
+        if (isPalindrome(phrase)) {
+            System.out.println("É um palindromo!");
+        } else {
+            System.out.println("Não é um palindromo");
+        }
+    }
+
+    public static boolean isPalindrome(String phrase) {
+        Stack<Character> palindrome = new Stack();
+
+        for (int i = 0; i < phrase.length(); i++) {
+            char c = phrase.charAt(i);
+            if (c == ' ') {
+                continue;
+            }
+            
+            palindrome.push(phrase.charAt(i));
+        }
+        for (int j = 0; palindrome.isEmpty(); j++) {
+            char a = phrase.charAt(j);
+            if(a == ' '){
+                continue;
+            }
+            if(palindrome.pop()!= phrase.charAt(j)){
+                return false;
+            }
+
+        }
+        return true;
+    }
+    
+}
+
