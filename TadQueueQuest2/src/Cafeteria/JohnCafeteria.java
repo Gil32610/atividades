@@ -5,7 +5,7 @@ import Queue.Queue;
 
 public class JohnCafeteria {
     public static void main(String[] args) {
-        Pedido p;
+        Pedido p, grant;
         String pedido, prato;
         Scanner s = new Scanner(System.in);
         Queue<Pedido> Maria = new Queue<>();
@@ -25,8 +25,23 @@ public class JohnCafeteria {
                     Maria.enQueue(p);
                     break;
                 case 2:
-                System.out.println(Maria.head());
-                break;
+                    System.out.println(Maria.head());
+                    break;
+                case 3:
+                    System.out.println("Informe o número do pedido: ");
+                    pedido = s.nextLine();
+                    p = new Pedido(pedido);
+                    if (p.equals(Maria.head())) {
+                        Maria.deQueue();
+                        System.out.println("Pedido entregue!");
+
+                    } else {
+                        System.out.println("Aguarde o pedido ficar pronto!");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Volte sempre!");
+                    break;
             }
 
         } while (op != 0);
