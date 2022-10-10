@@ -1,4 +1,4 @@
-package br.unicap.edi.ana;
+package Queue;
 
     public class LSENode<T> {
         private T content;

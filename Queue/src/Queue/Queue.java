@@ -1,4 +1,4 @@
-package br.unicap.edi.ana;
+package Queue;
 
 public class Queue<T> {
     private LSENode<T> head;
@@ -45,6 +45,10 @@ public class Queue<T> {
     public T head() {
         T content = this.head.getContent();
         return content;
+    }
+
+    public boolean isFull(){
+        return false;
     }
 
 }
