@@ -3,6 +3,9 @@ package br.unicap.edi.ana;
     public class LSENode<T> {
         private T content;
         private LSENode<T> next;   
+
+
+        
         public LSENode (T content) {
             this.content = content;
         }

@@ -12,7 +12,7 @@ public class Queue<T> {
         return false;
     }
 
-    public void insertLast(T content) {
+    public void enQueue(T content) {
         LSENode<T> node = new LSENode(content);
         if (this.isEmpty()) {
             this.head = node;
@@ -23,6 +23,13 @@ public class Queue<T> {
             this.tail = node;
             this.nodes++;
         }
+    }
+    public T deQueue(){
+        LSENode<T> current = this.head.getNext();
+        T content = this.head.getContent();
+        this.head = current;
+        return content;
+
     }
 
 }
