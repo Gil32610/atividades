@@ -1,0 +1,507 @@
+//CLASSE QUEUE IMPLEMENTADA
+
+package Queue;
+
+public class Queue<T> {
+    private LSENode<T> head;
+    private LSENode<T> tail;
+    private int nodes;
+
+    public boolean isEmpty() {
+        if (this.head == null && this.tail == null && this.nodes == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public void enQueue(T content) {
+        LSENode<T> node = new LSENode(content);
+        if (this.isEmpty()) {
+            this.head = node;
+            this.tail = node;
+            this.nodes++;
+        } else {
+            this.tail.setNext(node);
+            this.tail = node;
+            this.nodes++;
+        }
+    }
+
+    public T deQueue() {
+        T content;
+        if (this.head.getNext() == null) {
+            content = this.head.getContent();
+            this.head = null;
+            this.tail = null;
+            this.nodes = 0;
+            return content;
+
+        }
+        LSENode<T> current = this.head.getNext();
+        content = this.head.getContent();
+        this.head = current;
+        return content;
+
+    }
+
+    public T head() {
+        T content = this.head.getContent();
+        return content;
+    }
+
+    public boolean isFull(){
+        return false;
+    }
+
+}
+
+
+//CLASSE LSENODE
+
+package Queue;
+
+    public class LSENode<T> {
+        private T content;
+        private LSENode<T> next;   
+
+
+        
+        public LSENode (T content) {
+            this.content = content;
+        }
+        public void setContent(T content) {
+            this.content = content;
+        }
+        public T getContent() {
+            return this.content;
+        }
+        public void setNext(LSENode<T> novoProx) {
+            this.next = novoProx;
+        }
+        public LSENode<T> getNext () {
+            return this.next;
+        }    
+     
+}
+
+//QUESTAO 1 USANDO QUEUE IMPLEMENTADO
+
+package Cafeteria;
+
+import java.util.Scanner;
+import Queue.Queue;
+
+public class JohnCafeteria {
+    public static void main(String[] args) {
+        Pedido p, grant;
+        String pedido, prato;
+        Scanner s = new Scanner(System.in);
+        Queue<Pedido> Maria = new Queue<>();
+        int op;
+        
+        do {
+            System.out.println("Seja muito bem vind@ à Lanchonete SUPER veloz de João!");
+            System.out.println("Escolha a opção:");
+            showMenu();
+            op = Integer.parseInt(s.nextLine());
+
+            switch (op) {
+                case 1:
+                    System.out.println("Informe o número do boleto: ");
+                    pedido = s.nextLine();
+                    System.out.println("Informe o prato: ");
+                    prato = s.nextLine();
+                    p = new Pedido(pedido, prato);
+                    Maria.enQueue(p);
+                    break;
+                case 2:
+                    System.out.println(Maria.head());
+                    break;
+                case 3:
+                    System.out.println("Informe o número do pedido: ");
+                    pedido = s.nextLine();
+                    p = new Pedido(pedido);
+                    if (p.equals(Maria.head())) {
+                        Maria.deQueue();
+                        System.out.println("Pedido entregue!");
+
+                    } else {
+                        System.out.println("Aguarde o pedido ficar pronto!");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Volte sempre!");
+                    break;
+            }
+
+        } while (op != 0);
+
+    }
+
+    public static void showMenu() {
+        System.out.println("Opções");
+        System.out.println("1 - Fazer pedido");
+        System.out.println("2 - Pedido atual");
+        System.out.println("3 - Solicitar pedido");
+        System.out.println("0 - Sair");
+    }
+}
+
+//CLASSE QUESTAO 1 UTILIZANDO QUEUE JAVA
+
+package Cafeteria;
+
+import java.util.Scanner;
+import Queue.Queue;
+
+public class JohnCafeteria {
+    public static void main(String[] args) {
+        Pedido p, grant;
+        String pedido, prato;
+        Scanner s = new Scanner(System.in);
+        Queue<Pedido> Maria = new Queue<>();
+        int op;
+        
+        do {
+            System.out.println("Seja muito bem vind@ à Lanchonete SUPER veloz de João!");
+            System.out.println("Escolha a opção:");
+            showMenu();
+            op = Integer.parseInt(s.nextLine());
+
+            switch (op) {
+                case 1:
+                    System.out.println("Informe o número do boleto: ");
+                    pedido = s.nextLine();
+                    System.out.println("Informe o prato: ");
+                    prato = s.nextLine();
+                    p = new Pedido(pedido, prato);
+                    Maria.enQueue(p);
+                    break;
+                case 2:
+                    System.out.println(Maria.head());
+                    break;
+                case 3:
+                    System.out.println("Informe o número do pedido: ");
+                    pedido = s.nextLine();
+                    p = new Pedido(pedido);
+                    if (p.equals(Maria.head())) {
+                        Maria.deQueue();
+                        System.out.println("Pedido entregue!");
+
+                    } else {
+                        System.out.println("Aguarde o pedido ficar pronto!");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Volte sempre!");
+                    break;
+            }
+
+        } while (op != 0);
+
+    }
+
+    public static void showMenu() {
+        System.out.println("Opções");
+        System.out.println("1 - Fazer pedido");
+        System.out.println("2 - Pedido atual");
+        System.out.println("3 - Solicitar pedido");
+        System.out.println("0 - Sair");
+    }
+}
+
+//CLASE QUESTAO 2 USANDO QUEUE IMPLEMENTADO
+
+package Cafeteria;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+import MurkoffCorp.Projeto;
+public class JohnCafeteriaAlt {
+    public static void main(String[] args) {
+        Pedido p, grant;
+        String pedido, prato;
+        Scanner s = new Scanner(System.in);
+        Queue<Pedido> Maria = new LinkedList<>();
+        int op;
+        
+        do {
+            System.out.println("Seja muito bem vind@ à Lanchonete SUPER veloz de João!");
+            System.out.println("Escolha a opção:");
+            showMenu();
+            op = Integer.parseInt(s.nextLine());
+
+            switch (op) {
+                case 1:
+                    System.out.println("Informe o número do boleto: ");
+                    pedido = s.nextLine();
+                    System.out.println("Informe o prato: ");
+                    prato = s.nextLine();
+                    p = new Pedido(pedido, prato);
+                    Maria.add(p);
+                    break;
+                case 2:
+                    System.out.println(Maria.element());
+                    break;
+                case 3:
+                    System.out.println("Informe o número do pedido: ");
+                    pedido = s.nextLine();
+                    p = new Pedido(pedido);
+                    if (p.equals(Maria.element())) {
+                        Maria.remove();
+                        System.out.println("Pedido entregue!");
+
+                    } else {
+                        System.out.println("Aguarde o pedido ficar pronto!");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Volte sempre!");
+                    break;
+            }
+
+        } while (op != 0);
+
+    }
+
+    public static void showMenu() {
+        System.out.println("Opções");
+        System.out.println("1 - Fazer pedido");
+        System.out.println("2 - Pedido atual");
+        System.out.println("3 - Solicitar pedido");
+        System.out.println("0 - Sair");
+    }
+    
+}
+
+//CLASSE PEDIDO
+
+package Cafeteria;
+
+public class Pedido {
+    private String boleto;
+    private String prato;
+
+    public Pedido(String boleto) {
+        this.boleto = boleto;
+    }
+
+    public Pedido(String boleto, String prato) {
+        this.boleto = boleto;
+        this.prato = prato;
+    }
+
+    public String getBoleto() {
+        return this.boleto;
+    }
+
+    public void setBoleto(String boleto) {
+        this.boleto = boleto;
+    }
+
+    public String getPrato() {
+        return prato;
+    }
+
+    public void setPrato(String prato) {
+        this.prato = prato;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Pedido) {
+            Pedido anOrder = (Pedido) obj;
+            if (this.boleto.equals(anOrder.getBoleto())) {
+                return true;
+            }
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido [boleto= " + boleto + ", prato= " + prato + "]";
+    }
+
+}
+
+//QUESTAO 2 USANDO QUEUE IMPLEMENTADO
+
+package MurkoffCorp;
+
+import java.util.Scanner;
+import Queue.Queue;
+public class Jose {
+    public static void main(String[] args) {
+        Projeto p, grant;
+        String titulo, ideia;
+        Scanner s = new Scanner(System.in);
+        Queue<Projeto> projetos  = new Queue<>();
+        int op;
+
+        do {
+            System.out.println("Fila de projetos");
+            System.out.println("Escolha a opção:");
+            showMenu();
+            op = Integer.parseInt(s.nextLine());
+
+            switch (op) {
+                case 1:
+                    System.out.println("Informe o titulo do projeto: ");
+                    titulo = s.nextLine();
+                    System.out.println("Informe a ideia do projeto: ");
+                    ideia = s.nextLine();
+                    p = new Projeto(ideia, titulo);
+                    projetos.enQueue(p);
+                    break;
+                case 2:
+                    System.out.println(projetos.head());
+                    break;
+                case 3:
+                    System.out.println("Informe o número do titulo: ");
+                    titulo = s.nextLine();
+                    p = new Projeto(titulo);
+                    if (p.equals(projetos.head())) {
+                        projetos.deQueue();
+                        System.out.println("Projeto avaliado!");
+
+                    } else {
+                        System.out.println("Um Projeto ainda está sendo avaliado");
+                    }
+                    break;
+                case 0:
+                    System.out.println("fim!");
+                    break;
+            }
+
+        } while (op != 0);
+
+    }
+
+    public static void showMenu() {
+        System.out.println("Opções");
+        System.out.println("1 - Adicionar projeto");
+        System.out.println("2 - Próximo projeto para avaliação");
+        System.out.println("3 - Concluir avaliação");
+        System.out.println("0 - Sair");
+    }
+}
+
+//QUESTAO 2 USANDO CLASSE QUEUE JAVA
+
+package MurkoffCorp;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class JoseAlt {
+    public static void main(String[] args) {
+
+        Projeto p, grant;
+        String titulo, ideia;
+        Scanner s = new Scanner(System.in);
+        Queue<Projeto> projetos = new LinkedList<>();
+        int op;
+
+        do {
+            System.out.println("Fila de projetos");
+            System.out.println("Escolha a opção:");
+            showMenu();
+            op = Integer.parseInt(s.nextLine());
+
+            switch (op) {
+                case 1:
+                    System.out.println("Informe o titulo do projeto: ");
+                    titulo = s.nextLine();
+                    System.out.println("Informe a ideia do projeto: ");
+                    ideia = s.nextLine();
+                    p = new Projeto(ideia, titulo);
+                    projetos.add(p);
+                    break;
+                case 2:
+                    System.out.println(projetos.element());
+                    break;
+                case 3:
+                    System.out.println("Informe o número do titulo: ");
+                    titulo = s.nextLine();
+                    p = new Projeto(titulo);
+                    if (p.equals(projetos.element())) {
+                        projetos.remove();
+                        System.out.println("Projeto avaliado!");
+
+                    } else {
+                        System.out.println("Um Projeto ainda está sendo avaliado");
+                    }
+                    break;
+                case 0:
+                    System.out.println("fim!");
+                    break;
+            }
+
+        } while (op != 0);
+
+    }
+
+    public static void showMenu() {
+        System.out.println("Opções");
+        System.out.println("1 - Adicionar projeto");
+        System.out.println("2 - Próximo projeto para avaliação");
+        System.out.println("3 - Concluir avaliação");
+        System.out.println("0 - Sair");
+    }
+
+}
+
+//CLASSE PROJETO
+
+package MurkoffCorp;
+
+public class Projeto {
+    private String ideia;
+    private String titulo;
+
+    public Projeto(String ideia, String titulo) {
+        this.ideia = ideia;
+        this.titulo = titulo;
+    }
+
+    public Projeto(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getIdeia() {
+        return ideia;
+    }
+
+    public void setIdeia(String ideia) {
+        this.ideia = ideia;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Projeto [ideia= " + ideia + ", titulo= " + titulo + "]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Projeto) {
+            Projeto title = (Projeto) obj;
+            return this.titulo.equals(title.titulo);
+        }
+        return false;
+    }
+}
+
