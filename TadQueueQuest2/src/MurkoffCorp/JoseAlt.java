@@ -1,13 +1,17 @@
+
 package MurkoffCorp;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
-import Queue.Queue;
-public class Jose {
+
+public class JoseAlt {
     public static void main(String[] args) {
+
         Projeto p, grant;
         String titulo, ideia;
         Scanner s = new Scanner(System.in);
-        Queue<Projeto> projetos  = new Queue<>();
+        Queue<Projeto> projetos = new LinkedList<>();
         int op;
 
         do {
@@ -23,17 +27,17 @@ public class Jose {
                     System.out.println("Informe a ideia do projeto: ");
                     ideia = s.nextLine();
                     p = new Projeto(ideia, titulo);
-                    projetos.enQueue(p);
+                    projetos.add(p);
                     break;
                 case 2:
-                    System.out.println(projetos.head());
+                    System.out.println(projetos.element());
                     break;
                 case 3:
                     System.out.println("Informe o número do titulo: ");
                     titulo = s.nextLine();
                     p = new Projeto(titulo);
-                    if (p.equals(projetos.head())) {
-                        projetos.deQueue();
+                    if (p.equals(projetos.element())) {
+                        projetos.remove();
                         System.out.println("Projeto avaliado!");
 
                     } else {
@@ -56,4 +60,5 @@ public class Jose {
         System.out.println("3 - Concluir avaliação");
         System.out.println("0 - Sair");
     }
+
 }

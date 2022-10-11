@@ -2,6 +2,8 @@ package Cafeteria;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+
+import MurkoffCorp.Projeto;
 public class JohnCafeteriaAlt {
     public static void main(String[] args) {
         Pedido p, grant;
