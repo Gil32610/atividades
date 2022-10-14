@@ -3,6 +3,7 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "d:\\STUDY\\ESTRUTURA DE DADOS I\\atividades\\LimitedQueue\\LimitedQueue.jar"
+        "d:\\STUDY\\ESTRUTURA DE DADOS I\\atividades\\LimitedQueue\\LimitedQueue.jar",
+        "d:\\STUDY\\ESTRUTURA DE DADOS I\\atividades\\Deque\\Deque.jar"
     ]
 }
