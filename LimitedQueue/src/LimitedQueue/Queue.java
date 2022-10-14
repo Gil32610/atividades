@@ -10,7 +10,7 @@ package LimitedQueue;
         }
     
         public boolean isEmpty() {
-            if (this.head == null && this.tail == null && this.nodes == 0) {
+            if (this.head == null && this.tail == null && this.quantity == 0) {
                 return true;
             }
             return false;
