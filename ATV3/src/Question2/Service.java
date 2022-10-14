@@ -25,10 +25,10 @@ public class Service {
                     banco.nextCustomer();
                     break;
                 case 3:
-                    banco.firstInLine();
+                    System.out.println(banco.firstInLine()); 
                     break;
                 case 4:
-                    banco.lastInLine();
+                   System.out.println( banco.lastInLine());
                     break;
                 default:
                     System.out.println("Opção inálida");
