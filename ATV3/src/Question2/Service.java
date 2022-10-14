@@ -25,10 +25,10 @@ public class Service {
                     banco.nextCustomer();
                     break;
                 case 3:
-                    System.out.println(banco.firstInLine()); 
+                    System.out.println("Primeiro ticket da fila: " + banco.firstInLine());
                     break;
                 case 4:
-                   System.out.println( banco.lastInLine());
+                    System.out.println("Ultimo ticket da fila: " + banco.lastInLine());
                     break;
                 default:
                     System.out.println("Opção inálida");
