@@ -38,6 +38,7 @@ public class Queue<T> {
         LSENode<T> current = this.head.getNext();
         content = this.head.getContent();
         this.head = current;
+        this.nodes--;
         return content;
 
     }
@@ -47,7 +48,8 @@ public class Queue<T> {
         return content;
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
+
         return false;
     }
 
