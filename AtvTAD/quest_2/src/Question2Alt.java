@@ -21,8 +21,8 @@ public class Question2Alt {
         Stack<Character> palindrome = new Stack();
 
         for (int i = 0; i < phrase.length(); i++) {
-            char c = phrase.charAt(i);
-            if (c == ' ') {
+            Character c = phrase.charAt(i);
+            if (c.isWhitespace(c)) {
                 continue;
             }
             
