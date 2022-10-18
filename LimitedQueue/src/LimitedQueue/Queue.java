@@ -18,20 +18,17 @@ public class Queue<T> {
         return false;
     }
 
-    public void enQueue(T content) throws RuntimeException {
+    public void enQueue(T content) {
         LSENode<T> node = new LSENode(content);
         if (this.isEmpty()) {
             this.head = node;
             this.tail = node;
             this.quantity++;
         } else {
-            if (!this.isFull()) {
                 this.tail.setNext(node);
                 this.tail = node;
                 this.quantity++;
-            } else {
-                throw new RuntimeException();
-            }
+            
         }
     }
 
