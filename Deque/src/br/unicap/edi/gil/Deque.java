@@ -53,7 +53,10 @@ public class Deque<T> {
 
     public T eject() {
         T content = this.tail.getContent();
-        if(this.head.getNext()== null){
+        if (this.head.getNext() == null) {
+            this.quantity--;
+            this.head = null;
+            this.tail = null;
             return content;
         }
         LSENode current = this.head;
@@ -62,6 +65,7 @@ public class Deque<T> {
         }
         current.setNext(null);
         this.tail = current;
+        this.quantity--;
         return content;
     }
 
