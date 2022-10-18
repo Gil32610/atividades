@@ -1,6 +1,5 @@
 package LimitedQueue;
 
-import javax.management.RuntimeErrorException;
 
 public class Queue<T> {
     private LSENode<T> head;
