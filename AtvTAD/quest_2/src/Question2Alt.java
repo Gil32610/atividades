@@ -29,8 +29,8 @@ public class Question2Alt {
             palindrome.push(phrase.charAt(i));
         }
         for (int j = 0; palindrome.isEmpty(); j++) {
-            char a = phrase.charAt(j);
-            if(a == ' '){
+            Character a = phrase.charAt(j);
+            if(a.isWhitespace(a)){
                 continue;
             }
             if(palindrome.pop()!= phrase.charAt(j)){
